@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dna",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": "1"
+        },
+        {
+            "fieldName": "avatarUrl",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170519072631",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "alien",
+    "pagination": "no"
+}
