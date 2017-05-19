@@ -1,0 +1,60 @@
+<div>
+    <h2>Hosts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="host.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Host
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Dna</span></th>
+                    <th><span>Avatar</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="host in vm.hosts track by host.id">
+                    <td><a ui-sref="host-detail({id:host.id})">{{host.id}}</a></td>
+                    <td>{{host.name}}</td>
+                    <td>{{host.dna}}</td>
+                    <td>{{host.avatar}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="host-detail({id:host.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="host.edit({id:host.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="host.delete({id:host.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

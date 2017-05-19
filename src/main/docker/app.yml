@@ -1,0 +1,14 @@
+version: '2'
+services:
+    alien-app:
+        image: alien
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://alien-postgresql:5432/alien
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    alien-postgresql:
+        extends:
+            file: postgresql.yml
+            service: alien-postgresql

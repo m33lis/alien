@@ -1,0 +1,11 @@
+version: '2'
+services:
+    alien-postgresql:
+        image: postgres:9.6.2
+        # volumes:
+        #     - ~/volumes/jhipster/alien/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=alien
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
