@@ -25,23 +25,27 @@ public class MatchService {
         Integer firstHalfOfAlienDna = alienDna[0];
         Integer secondHalfOfAlienDna = alienDna[1];
 
-        GestatingResponse res;
+        GestatingResponse res = new GestatingResponse();
 
         if (firstHalfOfAlienDna.equals(secondHalfOfAlienDna)) {
           if (hostDna.equals(firstHalfOfAlienDna)) {
               // equilateral
-              res = GestatingResponse.GREAT_SUCCESS;
+              res.setCode("GREAT_SUCCESS");
+              res.setMessage("new viable and sulphurous creature has left the nest");
           } else {
               // isosceles
-              res = GestatingResponse.BIG_SUCCESS;
+              res.setCode("BIG_SUCCESS");
+              res.setMessage("new viable and strong creature has left the nest");
           }
         } else {
             if (!hostDna.equals(firstHalfOfAlienDna)
                 && !hostDna.equals(secondHalfOfAlienDna)) {
                 // scalene
-                res = GestatingResponse.SUCCESS;
+                res.setCode("SUCCESS");
+                res.setMessage("new alien has left the nest");
             } else {
-                res = GestatingResponse.FAIL;
+                res.setCode("FAIL");
+                res.setMessage("gestating aborted");
             }
         }
 

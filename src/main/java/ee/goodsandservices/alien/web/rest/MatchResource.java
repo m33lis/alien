@@ -36,7 +36,6 @@ public class MatchResource {
     */
 
     @GetMapping("/match/{alienDna}/{hostDna}")
-    @Timed
     public ResponseEntity<GestatingResponse> matchAlienAndHost(@PathVariable Integer[] alienDna, @PathVariable Integer hostDna) {
         log.debug("REST request to match alienDna : {} with hostDna : {}", alienDna, hostDna);
         GestatingResponse response = matchService.match(alienDna, hostDna);

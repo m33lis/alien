@@ -3,20 +3,33 @@ package ee.goodsandservices.alien.domain;
 /**
  * Created by m3l on 19.05.17.
  */
-public enum GestatingResponse {
 
-        GREAT_SUCCESS("new viable and sulphurous creature has left the nest"),
-        BIG_SUCCESS("new viable and strong creature has left the nest"),
-        SUCCESS("new alien has left the nest"),
-        FAIL("gestating aborted");
+public class GestatingResponse {
 
-        private String response;
+    private String message;
+    private String code;
 
-        GestatingResponse(String response) {
-            this.response = response;
-        }
+    public String getMessage() {
+        return message;
+    }
 
-        public String response() {
-            return response;
-        }
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @Override
+    public String toString() {
+        return "GestatingResponse{" +
+            "message='" + message + '\'' +
+            ", code='" + code + '\'' +
+            '}';
+    }
 }

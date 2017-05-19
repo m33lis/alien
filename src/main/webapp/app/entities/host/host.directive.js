@@ -34,12 +34,7 @@
                             hostDna: vm.host.dna
             };
             MatchService.get(queryObj, function (res) {
-                var status = "";
-                for (var i=0;i<Object.keys(res).length-2;i++) {
-                    status += res[i];
-                }
-                alert(status);
-                console.log("Yai, we have a result :D", res);
+                alert(res.code+", "+res.message);
             });
         }
     }
