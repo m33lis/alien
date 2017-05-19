@@ -7,7 +7,7 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "dna",
+            "fieldName": "dnaOne",
             "fieldType": "Integer",
             "fieldValidateRules": [
                 "min"
@@ -15,7 +15,15 @@
             "fieldValidateRulesMin": "1"
         },
         {
-            "fieldName": "avatarUrl",
+            "fieldName": "dnaTwo",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": "1"
+        },
+        {
+            "fieldName": "avatar",
             "fieldType": "String"
         }
     ],

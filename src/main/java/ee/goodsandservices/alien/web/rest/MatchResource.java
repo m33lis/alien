@@ -5,6 +5,7 @@ import ee.goodsandservices.alien.domain.GestatingResponse;
 import ee.goodsandservices.alien.service.MatchService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,10 +34,13 @@ public class MatchResource {
     * @param hostDna dna of host
     * @return the GestatingResponse
     */
+
     @GetMapping("/match/{alienDna}/{hostDna}")
     @Timed
-    public GestatingResponse matchAlienAndHost(@PathVariable Integer alienDna, @PathVariable Integer hostDna) {
+    public ResponseEntity<GestatingResponse> matchAlienAndHost(@PathVariable Integer[] alienDna, @PathVariable Integer hostDna) {
         log.debug("REST request to match alienDna : {} with hostDna : {}", alienDna, hostDna);
-        return matchService.match(alienDna, hostDna);
+        GestatingResponse response = matchService.match(alienDna, hostDna);
+
+        return ResponseEntity.ok().body(response);
     }
 }

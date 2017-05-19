@@ -41,11 +41,14 @@ public class AlienResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAAAAAAA";
     private static final String UPDATED_NAME = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_DNA = 1;
-    private static final Integer UPDATED_DNA = 2;
+    private static final Integer DEFAULT_DNA_ONE = 1;
+    private static final Integer UPDATED_DNA_ONE = 2;
 
-    private static final String DEFAULT_AVATAR_URL = "AAAAAAAAAA";
-    private static final String UPDATED_AVATAR_URL = "BBBBBBBBBB";
+    private static final Integer DEFAULT_DNA_TWO = 1;
+    private static final Integer UPDATED_DNA_TWO = 2;
+
+    private static final String DEFAULT_AVATAR = "AAAAAAAAAA";
+    private static final String UPDATED_AVATAR = "BBBBBBBBBB";
 
     @Autowired
     private AlienRepository alienRepository;
@@ -88,8 +91,9 @@ public class AlienResourceIntTest {
     public static Alien createEntity(EntityManager em) {
         Alien alien = new Alien()
             .name(DEFAULT_NAME)
-            .dna(DEFAULT_DNA)
-            .avatarUrl(DEFAULT_AVATAR_URL);
+            .dnaOne(DEFAULT_DNA_ONE)
+            .dnaTwo(DEFAULT_DNA_TWO)
+            .avatar(DEFAULT_AVATAR);
         return alien;
     }
 
@@ -114,8 +118,9 @@ public class AlienResourceIntTest {
         assertThat(alienList).hasSize(databaseSizeBeforeCreate + 1);
         Alien testAlien = alienList.get(alienList.size() - 1);
         assertThat(testAlien.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testAlien.getDna()).isEqualTo(DEFAULT_DNA);
-        assertThat(testAlien.getAvatarUrl()).isEqualTo(DEFAULT_AVATAR_URL);
+        assertThat(testAlien.getDnaOne()).isEqualTo(DEFAULT_DNA_ONE);
+        assertThat(testAlien.getDnaTwo()).isEqualTo(DEFAULT_DNA_TWO);
+        assertThat(testAlien.getAvatar()).isEqualTo(DEFAULT_AVATAR);
     }
 
     @Test
@@ -149,8 +154,9 @@ public class AlienResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(alien.getId().intValue())))
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].dna").value(hasItem(DEFAULT_DNA)))
-            .andExpect(jsonPath("$.[*].avatarUrl").value(hasItem(DEFAULT_AVATAR_URL.toString())));
+            .andExpect(jsonPath("$.[*].dnaOne").value(hasItem(DEFAULT_DNA_ONE)))
+            .andExpect(jsonPath("$.[*].dnaTwo").value(hasItem(DEFAULT_DNA_TWO)))
+            .andExpect(jsonPath("$.[*].avatar").value(hasItem(DEFAULT_AVATAR.toString())));
     }
 
     @Test
@@ -165,8 +171,9 @@ public class AlienResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(alien.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.dna").value(DEFAULT_DNA))
-            .andExpect(jsonPath("$.avatarUrl").value(DEFAULT_AVATAR_URL.toString()));
+            .andExpect(jsonPath("$.dnaOne").value(DEFAULT_DNA_ONE))
+            .andExpect(jsonPath("$.dnaTwo").value(DEFAULT_DNA_TWO))
+            .andExpect(jsonPath("$.avatar").value(DEFAULT_AVATAR.toString()));
     }
 
     @Test
@@ -189,8 +196,9 @@ public class AlienResourceIntTest {
         Alien updatedAlien = alienRepository.findOne(alien.getId());
         updatedAlien
             .name(UPDATED_NAME)
-            .dna(UPDATED_DNA)
-            .avatarUrl(UPDATED_AVATAR_URL);
+            .dnaOne(UPDATED_DNA_ONE)
+            .dnaTwo(UPDATED_DNA_TWO)
+            .avatar(UPDATED_AVATAR);
 
         restAlienMockMvc.perform(put("/api/aliens")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -202,8 +210,9 @@ public class AlienResourceIntTest {
         assertThat(alienList).hasSize(databaseSizeBeforeUpdate);
         Alien testAlien = alienList.get(alienList.size() - 1);
         assertThat(testAlien.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testAlien.getDna()).isEqualTo(UPDATED_DNA);
-        assertThat(testAlien.getAvatarUrl()).isEqualTo(UPDATED_AVATAR_URL);
+        assertThat(testAlien.getDnaOne()).isEqualTo(UPDATED_DNA_ONE);
+        assertThat(testAlien.getDnaTwo()).isEqualTo(UPDATED_DNA_TWO);
+        assertThat(testAlien.getAvatar()).isEqualTo(UPDATED_AVATAR);
     }
 
     @Test

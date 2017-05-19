@@ -44,6 +44,9 @@
                 entity: ['$stateParams', 'Alien', function($stateParams, Alien) {
                     return Alien.get({id : $stateParams.id}).$promise;
                 }],
+                hosts: [ 'Host', function (Host) {
+                    return Host.query().$promise;
+                }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
                         name: $state.current.name || 'alien',
@@ -96,8 +99,9 @@
                         entity: function () {
                             return {
                                 name: null,
-                                dna: null,
-                                avatarUrl: null,
+                                dnaOne: null,
+                                dnaTwo: null,
+                                avatar: null,
                                 id: null
                             };
                         }

@@ -24,11 +24,15 @@ public class Alien implements Serializable {
     private String name;
 
     @Min(value = 1)
-    @Column(name = "dna")
-    private Integer dna;
+    @Column(name = "dna_one")
+    private Integer dnaOne;
 
-    @Column(name = "avatar_url")
-    private String avatarUrl;
+    @Min(value = 1)
+    @Column(name = "dna_two")
+    private Integer dnaTwo;
+
+    @Column(name = "avatar")
+    private String avatar;
 
     public Long getId() {
         return id;
@@ -51,30 +55,43 @@ public class Alien implements Serializable {
         this.name = name;
     }
 
-    public Integer getDna() {
-        return dna;
+    public Integer getDnaOne() {
+        return dnaOne;
     }
 
-    public Alien dna(Integer dna) {
-        this.dna = dna;
+    public Alien dnaOne(Integer dnaOne) {
+        this.dnaOne = dnaOne;
         return this;
     }
 
-    public void setDna(Integer dna) {
-        this.dna = dna;
+    public void setDnaOne(Integer dnaOne) {
+        this.dnaOne = dnaOne;
     }
 
-    public String getAvatarUrl() {
-        return avatarUrl;
+    public Integer getDnaTwo() {
+        return dnaTwo;
     }
 
-    public Alien avatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public Alien dnaTwo(Integer dnaTwo) {
+        this.dnaTwo = dnaTwo;
         return this;
     }
 
-    public void setAvatarUrl(String avatarUrl) {
-        this.avatarUrl = avatarUrl;
+    public void setDnaTwo(Integer dnaTwo) {
+        this.dnaTwo = dnaTwo;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public Alien avatar(String avatar) {
+        this.avatar = avatar;
+        return this;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
@@ -102,8 +119,9 @@ public class Alien implements Serializable {
         return "Alien{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", dna='" + getDna() + "'" +
-            ", avatarUrl='" + getAvatarUrl() + "'" +
+            ", dnaOne='" + getDnaOne() + "'" +
+            ", dnaTwo='" + getDnaTwo() + "'" +
+            ", avatar='" + getAvatar() + "'" +
             "}";
     }
 }

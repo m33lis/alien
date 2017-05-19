@@ -20,8 +20,9 @@
                 <tr>
                     <th><span>ID</span></th>
                     <th><span>Name</span></th>
-                    <th><span>Dna</span></th>
-                    <th><span>Avatar Url</span></th>
+                    <th><span>Dna One</span></th>
+                    <th><span>Dna Two</span></th>
+                    <th><span>Avatar</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,8 +30,9 @@
                 <tr ng-repeat="alien in vm.aliens track by alien.id">
                     <td><a ui-sref="alien-detail({id:alien.id})">{{alien.id}}</a></td>
                     <td>{{alien.name}}</td>
-                    <td>{{alien.dna}}</td>
-                    <td>{{alien.avatarUrl}}</td>
+                    <td>{{alien.dnaOne}}</td>
+                    <td>{{alien.dnaTwo}}</td>
+                    <td><a ui-sref="alien-detail({id:alien.id})"><img src="{{alien.avatar}}" style="max-height: 100px;" /></a></td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

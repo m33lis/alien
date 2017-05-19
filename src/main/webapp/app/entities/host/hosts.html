@@ -30,7 +30,7 @@
                     <td><a ui-sref="host-detail({id:host.id})">{{host.id}}</a></td>
                     <td>{{host.name}}</td>
                     <td>{{host.dna}}</td>
-                    <td>{{host.avatar}}</td>
+                    <td><a ui-sref="host-detail({id:host.id})"><img src="{{host.avatar}}" style="max-height: 100px;" /></a></td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

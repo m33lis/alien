@@ -20,21 +20,32 @@ public class MatchService {
 
     private final Logger log = LoggerFactory.getLogger(MatchService.class);
 
-    public GestatingResponse match(Integer alienDna, Integer hostDna) {
+    public GestatingResponse match(Integer[] alienDna, Integer hostDna) {
+        log.debug("Trying to match hostDna: {} with alienDna: {}", hostDna, alienDna);
+        Integer firstHalfOfAlienDna = alienDna[0];
+        Integer secondHalfOfAlienDna = alienDna[1];
 
-        Integer firstHalfOfAlienDna = Character.getNumericValue(alienDna.toString().charAt(0));
-        Integer secondHalfOfAlienDna = Character.getNumericValue(alienDna.toString().charAt(1));
+        GestatingResponse res;
 
         if (firstHalfOfAlienDna.equals(secondHalfOfAlienDna)) {
           if (hostDna.equals(firstHalfOfAlienDna)) {
-              return GestatingResponse.GREAT_SUCCESS;
+              // equilateral
+              res = GestatingResponse.GREAT_SUCCESS;
           } else {
-              // fixme!
-              return GestatingResponse.BIG_SUCCESS;
+              // isosceles
+              res = GestatingResponse.BIG_SUCCESS;
           }
+        } else {
+            if (!hostDna.equals(firstHalfOfAlienDna)
+                && !hostDna.equals(secondHalfOfAlienDna)) {
+                // scalene
+                res = GestatingResponse.SUCCESS;
+            } else {
+                res = GestatingResponse.FAIL;
+            }
         }
 
-        return GestatingResponse.FAIL;
+        return res;
     }
 
 }

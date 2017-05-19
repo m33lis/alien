@@ -8,13 +8,21 @@
         <dd>
             <span>{{vm.alien.name}}</span>
         </dd>
-        <dt><span>Dna</span></dt>
+        <dt><span>Dna One</span></dt>
         <dd>
-            <span>{{vm.alien.dna}}</span>
+            <span>{{vm.alien.dnaOne}}</span>
         </dd>
-        <dt><span>Avatar Url</span></dt>
+        <dt><span>Dna Two</span></dt>
         <dd>
-            <span>{{vm.alien.avatarUrl}}</span>
+            <span>{{vm.alien.dnaTwo}}</span>
+        </dd>
+        <dt><span>Avatar</span></dt>
+        <dd>
+            <span><img src="{{vm.alien.avatar}}" style="max-height: 100px; "/></span>
+        </dd>
+        <dt><span>Available hosts</span></dt>
+        <dd>
+            <span><span ng-repeat="host in vm.hosts"><host host="host" alien="vm.alien" /></span></span>
         </dd>
     </dl>
 

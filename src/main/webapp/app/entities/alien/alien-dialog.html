@@ -20,25 +20,41 @@
                     />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_dna">Dna</label>
-            <input type="number" class="form-control" name="dna" id="field_dna"
-                    ng-model="vm.alien.dna"
+            <label class="control-label" for="field_dnaOne">Dna One</label>
+            <input type="number" class="form-control" name="dnaOne" id="field_dnaOne"
+                    ng-model="vm.alien.dnaOne"
                     min="1"/>
-            <div ng-show="editForm.dna.$invalid">
+            <div ng-show="editForm.dnaOne.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.dna.$error.min" translate-value-min="1">
+                    ng-show="editForm.dnaOne.$error.min" translate-value-min="1">
                     This field should be at least 1.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.dna.$error.number">
+                    ng-show="editForm.dnaOne.$error.number">
                     This field should be a number.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_avatarUrl">Avatar Url</label>
-            <input type="text" class="form-control" name="avatarUrl" id="field_avatarUrl"
-                    ng-model="vm.alien.avatarUrl"
+            <label class="control-label" for="field_dnaTwo">Dna Two</label>
+            <input type="number" class="form-control" name="dnaTwo" id="field_dnaTwo"
+                    ng-model="vm.alien.dnaTwo"
+                    min="1"/>
+            <div ng-show="editForm.dnaTwo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dnaTwo.$error.min" translate-value-min="1">
+                    This field should be at least 1.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.dnaTwo.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_avatar">Avatar</label>
+            <input type="text" class="form-control" name="avatar" id="field_avatar"
+                    ng-model="vm.alien.avatar"
                     />
         </div>
 
